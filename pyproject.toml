@@ -9,7 +9,7 @@ description = "Python port of the TOON encoder, producing a concise, human-reada
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
-authors = [{ name = "PyTOON Contributors" }]
+authors = [{ name = "Bintang Pradana Erlangga Putra" }]
 keywords = ["toon", "serialization", "data-format", "text", "encoding"]
 classifiers = [
     "Development Status :: 3 - Alpha",
