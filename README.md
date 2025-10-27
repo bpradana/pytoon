@@ -17,7 +17,7 @@ Installation
 ------------
 
 ```bash
-pip install pytoon
+pip install pytoon-encoder
 ```
 
 If you are working from this repository, install it in editable mode:
