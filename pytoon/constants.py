@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Final, Literal
+from typing import Dict, Final, Literal
 
 # List markers
 LIST_ITEM_MARKER: Final[str] = "-"
@@ -34,7 +34,7 @@ TAB: Final[Literal["\t"]] = "\t"
 DelimiterKey = Literal["comma", "tab", "pipe"]
 Delimiter = Literal[",", "\t", "|"]
 
-DELIMITERS: dict[DelimiterKey, Delimiter] = {
+DELIMITERS: Dict[DelimiterKey, Delimiter] = {
     "comma": COMMA,
     "tab": TAB,
     "pipe": PIPE,

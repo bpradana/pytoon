@@ -7,7 +7,7 @@ name = "pytoon"
 version = "0.1.0"
 description = "Python port of the Toon encoder, producing a concise, human-readable data format."
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.8"
 license = { text = "MIT" }
 authors = [{ name = "PyToon Contributors" }]
 keywords = ["toon", "serialization", "data-format", "text", "encoding"]
@@ -18,6 +18,10 @@ classifiers = [
     "Topic :: Text Processing :: Markup",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = []
@@ -25,12 +29,15 @@ dependencies = []
 [project.optional-dependencies]
 dev = [
     "build>=1.0.0",
+    "mypy>=1.8",
+    "pytest>=7.0",
+    "ruff>=0.2.0",
 ]
 
 [project.urls]
-Homepage = "https://github.com/bpradana/pytoon"
-Repository = "https://github.com/bpradana/pytoon"
-Issues = "https://github.com/bpradana/pytoon/issues"
+Homepage = "https://github.com/privy/pytoon"
+Repository = "https://github.com/privy/pytoon"
+Issues = "https://github.com/privy/pytoon/issues"
 Upstream = "https://github.com/johannschopplich/toon"
 
 [tool.setuptools.packages.find]
@@ -38,7 +45,7 @@ include = ["pytoon*"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py312"
+target-version = "py38"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]

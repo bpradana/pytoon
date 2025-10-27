@@ -11,7 +11,7 @@ Features
 - Produces the familiar Toon text format with support for inline arrays, tabular object arrays, and deeply nested structures.
 - Configurable indentation, row delimiter (`','`, `'|'`, `'\t'`), and optional length marker flag (`[#N]` style headers).
 - Safe string quoting and escaping rules that match the upstream implementation.
-- Lightweight dependency-free package targeting Python 3.12+.
+- Lightweight dependency-free package targeting Python 3.8+.
 
 Installation
 ------------
@@ -78,8 +78,8 @@ Output:
 
 ```
 items[#2|]{id|name}:
-    1|Ada
-    2|Bob
+  1|Ada
+  2|Bob
 ```
 
 Testing
@@ -98,12 +98,11 @@ Project Structure
 
 - `pytoon/` – Core encoder modules (`constants`, `normalize`, `primitives`, `encoders`, `writer`).
 - `tests/` – Unit tests that exercise key encoding scenarios.
-- `docs/toon-main/` – Vendored copy of the original TypeScript project for reference.
 
 Versioning & Compatibility
 --------------------------
 
-PyToon targets Python 3.12+ and strives to remain aligned with the latest upstream `toon` behaviour. Breaking changes to the text format will only occur alongside upstream updates and will be noted in release notes.
+PyToon targets Python 3.8+ and strives to remain aligned with the latest upstream `toon` behaviour. Breaking changes to the text format will only occur alongside upstream updates and will be noted in release notes.
 
 Contributing
 ------------
@@ -111,7 +110,7 @@ Contributing
 Contributions are welcome! To get started:
 
 1. Fork and clone the repository.
-2. Create a virtual environment for Python 3.12 or newer.
+2. Create a virtual environment for Python 3.8 or newer.
 3. Install in editable mode with testing extras: `pip install -e .`.
 4. Run `python3 -m unittest discover -s tests` before submitting a pull request.
 

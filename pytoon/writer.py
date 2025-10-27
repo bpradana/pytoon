@@ -3,14 +3,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from typing import List
 
 from .types import Depth
 
 
-@dataclass(slots=True)
+@dataclass
 class LineWriter:
     indent_size: int
-    _lines: list[str] = field(default_factory=list, init=False)
+    _lines: List[str] = field(default_factory=list, init=False)
     _indentation: str = field(init=False, repr=False)
 
     def __post_init__(self) -> None:

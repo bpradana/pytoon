@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Sequence
-from typing import Literal, Optional
+from typing import List, Literal, Optional
 
 from .constants import LIST_ITEM_MARKER, LIST_ITEM_PREFIX
 from .normalize import (
@@ -58,9 +58,7 @@ def encode_key_value_pair(
     encoded_key = encode_key(key)
 
     if is_json_primitive(value):
-        writer.push(
-            depth, f"{encoded_key}: {encode_primitive(value, options.delimiter)}"
-        )
+        writer.push(depth, f"{encoded_key}: {encode_primitive(value, options.delimiter)}")
     elif is_json_array(value):
         encode_array(key, value, writer, depth, options)
     elif is_json_object(value):
@@ -100,9 +98,7 @@ def encode_array(
     if is_array_of_objects(items):
         header = detect_tabular_header(items)
         if header is not None:
-            encode_array_of_objects_as_tabular(
-                key, items, header, writer, depth, options
-            )
+            encode_array_of_objects_as_tabular(key, items, header, writer, depth, options)
         else:
             encode_mixed_array_as_list_items(key, items, writer, depth, options)
         return
@@ -117,9 +113,7 @@ def encode_inline_primitive_array(
     depth: Depth,
     options: ResolvedEncodeOptions,
 ) -> None:
-    formatted = format_inline_array(
-        values, options.delimiter, prefix, options.length_marker
-    )
+    formatted = format_inline_array(values, options.delimiter, prefix, options.length_marker)
     writer.push(depth, formatted)
 
 
@@ -140,9 +134,7 @@ def encode_array_of_arrays_as_list_items(
 
     for arr in values:
         if is_array_of_primitives(arr):
-            inline = format_inline_array(
-                arr, options.delimiter, None, options.length_marker
-            )
+            inline = format_inline_array(arr, options.delimiter, None, options.length_marker)
             writer.push(depth + 1, f"{LIST_ITEM_PREFIX}{inline}")
 
 
@@ -183,7 +175,7 @@ def encode_array_of_objects_as_tabular(
     write_tabular_rows(rows, header, writer, depth + 1, options)
 
 
-def detect_tabular_header(rows: Sequence[JsonObject]) -> list[str] | None:
+def detect_tabular_header(rows: Sequence[JsonObject]) -> Optional[List[str]]:
     if not rows:
         return None
 
@@ -248,9 +240,7 @@ def encode_mixed_array_as_list_items(
             )
         elif is_json_array(item):
             if is_array_of_primitives(item):
-                inline = format_inline_array(
-                    item, options.delimiter, None, options.length_marker
-                )
+                inline = format_inline_array(item, options.delimiter, None, options.length_marker)
                 writer.push(depth + 1, f"{LIST_ITEM_PREFIX}{inline}")
         elif is_json_object(item):
             encode_object_as_list_item(item, writer, depth + 1, options)
@@ -295,9 +285,7 @@ def encode_object_as_list_item(
                 writer.push(depth, f"{LIST_ITEM_PREFIX}{header_str}")
                 write_tabular_rows(first_value, header, writer, depth + 1, options)
             else:
-                writer.push(
-                    depth, f"{LIST_ITEM_PREFIX}{encoded_key}[{len(first_value)}]:"
-                )
+                writer.push(depth, f"{LIST_ITEM_PREFIX}{encoded_key}[{len(first_value)}]:")
                 for item in first_value:
                     encode_object_as_list_item(item, writer, depth + 1, options)
         else:

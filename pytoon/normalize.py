@@ -6,7 +6,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import asdict, is_dataclass
 from datetime import date, datetime
 from math import copysign, isfinite
-from typing import Any
+from typing import Any, Dict
 
 from .types import JsonArray, JsonValue
 
@@ -33,11 +33,11 @@ def normalize_value(value: Any) -> JsonValue:
     if is_dataclass(value):
         return normalize_value(asdict(value))
 
-    if isinstance(value, set | frozenset):
+    if isinstance(value, (set, frozenset)):
         return [normalize_value(v) for v in value]
 
     if isinstance(value, Mapping):
-        normalized: dict[str, JsonValue] = {}
+        normalized: Dict[str, JsonValue] = {}
         for key, item in value.items():
             normalized[str(key)] = normalize_value(item)
         return normalized
@@ -53,9 +53,7 @@ def is_json_primitive(value: Any) -> bool:
 
 
 def is_json_array(value: Any) -> bool:
-    return isinstance(value, Sequence) and not isinstance(
-        value, (str, bytes, bytearray)
-    )
+    return isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray))
 
 
 def is_json_object(value: Any) -> bool:

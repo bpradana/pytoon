@@ -54,12 +54,7 @@ class EncodeArraysTest(unittest.TestCase):
         }
         self.assertEqual(
             encode(payload),
-            "items[2]:\n"
-            "  - id: 1\n"
-            "    name: Ada\n"
-            "  - id: 2\n"
-            "    name: Bob\n"
-            "    extra: true",
+            "items[2]:\n  - id: 1\n    name: Ada\n  - id: 2\n    name: Bob\n    extra: true",
         )
 
     def test_array_of_arrays(self) -> None:

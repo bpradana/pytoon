@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Iterable, Literal
+from typing import Iterable, Literal, Optional
 
 from .constants import (
     BACKSLASH,
@@ -18,7 +18,7 @@ from .constants import (
 from .types import JsonPrimitive
 
 
-def encode_primitive(value: JsonPrimitive, delimiter: str | None = None) -> str:
+def encode_primitive(value: JsonPrimitive, delimiter: Optional[str] = None) -> str:
     if value is None:
         return NULL_LITERAL
 
@@ -121,8 +121,8 @@ def join_encoded_values(values: Iterable[JsonPrimitive], delimiter: str = COMMA)
 def format_header(
     length: int,
     *,
-    key: str | None = None,
-    fields: Iterable[str] | None = None,
+    key: Optional[str] = None,
+    fields: Optional[Iterable[str]] = None,
     delimiter: str = COMMA,
     length_marker: Literal["#", False] = False,
 ) -> str:
