@@ -1,7 +1,7 @@
-PyToon
+PyTOON
 ======
 
-PyToon is a Python port of the excellent [`toon`](https://github.com/johannschopplich/toon) project by Johann Schopplich. It converts arbitrary Python data structures into the same concise, human-readable text representation produced by the original TypeScript encoder.
+PyTOON is a Python port of the excellent [`toon`](https://github.com/johannschopplich/toon) project by Johann Schopplich. It converts arbitrary Python data structures into the same concise, human-readable text representation produced by the original TypeScript encoder.
 
 The goal of this repository is feature parity with the source project while offering a first-class experience for Python applications and tooling.
 
@@ -102,7 +102,7 @@ Project Structure
 Versioning & Compatibility
 --------------------------
 
-PyToon targets Python 3.8+ and strives to remain aligned with the latest upstream `toon` behaviour. Breaking changes to the text format will only occur alongside upstream updates and will be noted in release notes.
+PyTOON targets Python 3.8+ and strives to remain aligned with the latest upstream `toon` behaviour. Breaking changes to the text format will only occur alongside upstream updates and will be noted in release notes.
 
 Contributing
 ------------
@@ -119,4 +119,4 @@ When porting behaviour from the TypeScript project, please include links or refe
 License
 -------
 
-PyToon retains the licensing of the original [`toon`](https://github.com/johannschopplich/toon) project. Refer to `LICENSE` for details.
+PyTOON retains the licensing of the original [`toon`](https://github.com/johannschopplich/toon) project. Refer to `LICENSE` for details.

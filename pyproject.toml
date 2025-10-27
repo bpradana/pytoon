@@ -5,11 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pytoon"
 version = "0.1.0"
-description = "Python port of the Toon encoder, producing a concise, human-readable data format."
+description = "Python port of the TOON encoder, producing a concise, human-readable data format."
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
-authors = [{ name = "PyToon Contributors" }]
+authors = [{ name = "PyTOON Contributors" }]
 keywords = ["toon", "serialization", "data-format", "text", "encoding"]
 classifiers = [
     "Development Status :: 3 - Alpha",
