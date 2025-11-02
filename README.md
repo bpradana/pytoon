@@ -5,6 +5,9 @@ PyTOON is a Python port of the excellent [`toon`](https://github.com/johannschop
 
 The goal of this repository is feature parity with the upstream project while providing a first-class experience for Python applications and tooling.
 
+> [!WARNING]
+> This repository is deprecated. Once `https://github.com/toon-format/toon-python` is released, use that package instead of this repository. No further updates will be made here.
+
 Contents
 --------
 - [Features](#features)
